@@ -25,7 +25,7 @@ if(x=="1"){xxx="4.Blogs.To.Help.Track.Current.Viral.Trends.html"}
 if(x=="2"){xxx="3.Surefire.Tips.to.Building.a.Great.Business.Team.html"}
 if(x=="3"){xxx="3.Marketing.Trends.To.Put.On.Your.Radar.Today.html"}
 if(x=="4"){xxx="3.Major.Reasons.Why.Clients.Are.Not.Buying.Your.SEO.Services.html"}
-if(x=="5"){xxx="p3.Inspiring.Women.Entrepreneurs.You.Need.to.Know.html"}
+if(x=="5"){xxx="3.Inspiring.Women.Entrepreneurs.You.Need.to.Know.html"}
 a_to_ve[i].href="https://safe.kecoh.info/2018/08/"+xxx+"?url="+ encryptedUrl;a_to_ve[i].rel="nofollow";a_to_vb++;a_to_vc+=i+":::"+ a_to_ve[i].href+"\n";}}
 var a_to_vj=document.getElementById("anonyminized");var a_to_vk=document.getElementById("found_links");if(a_to_vj)
 {a_to_vj.innerHTML+=a_to_vb;}
