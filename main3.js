@@ -1,34 +1,10 @@
-var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(input){var output="";var chr1,chr2,chr3,enc1,enc2,enc3,enc4;var i=0;input=Base64._utf8_encode(input);while(i<input.length){chr1=input.charCodeAt(i++);chr2=input.charCodeAt(i++);chr3=input.charCodeAt(i++);enc1=chr1>>2;enc2=((chr1&3)<<4)|(chr2>>4);enc3=((chr2&15)<<2)|(chr3>>6);enc4=chr3&63;if(isNaN(chr2)){enc3=enc4=64;}else if(isNaN(chr3)){enc4=64;}
-output=output+ this._keyStr.charAt(enc1)+ this._keyStr.charAt(enc2)+ this._keyStr.charAt(enc3)+ this._keyStr.charAt(enc4);}
-return output;},decode:function(input){var output="";var chr1,chr2,chr3;var enc1,enc2,enc3,enc4;var i=0;input=input.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(i<input.length){enc1=this._keyStr.indexOf(input.charAt(i++));enc2=this._keyStr.indexOf(input.charAt(i++));enc3=this._keyStr.indexOf(input.charAt(i++));enc4=this._keyStr.indexOf(input.charAt(i++));chr1=(enc1<<2)|(enc2>>4);chr2=((enc2&15)<<4)|(enc3>>2);chr3=((enc3&3)<<6)|enc4;output=output+ String.fromCharCode(chr1);if(enc3!=64){output=output+ String.fromCharCode(chr2);}
-if(enc4!=64){output=output+ String.fromCharCode(chr3);}}
-output=Base64._utf8_decode(output);return output;},_utf8_encode:function(string){string=string.replace(/\r\n/g,"\n");var utftext="";for(var n=0;n<string.length;n++){var c=string.charCodeAt(n);if(c<128){utftext+=String.fromCharCode(c);}
-else if((c>127)&&(c<2048)){utftext+=String.fromCharCode((c>>6)|192);utftext+=String.fromCharCode((c&63)|128);}
-else{utftext+=String.fromCharCode((c>>12)|224);utftext+=String.fromCharCode(((c>>6)&63)|128);utftext+=String.fromCharCode((c&63)|128);}}
-return utftext;},_utf8_decode:function(utftext){var string="";var i=0;var c=c1=c2=0;while(i<utftext.length){c=utftext.charCodeAt(i);if(c<128){string+=String.fromCharCode(c);i++;}
-else if((c>191)&&(c<224)){c2=utftext.charCodeAt(i+ 1);string+=String.fromCharCode(((c&31)<<6)|(c2&63));i+=2;}
-else{c2=utftext.charCodeAt(i+ 1);c3=utftext.charCodeAt(i+ 2);string+=String.fromCharCode(((c&15)<<12)|((c2&63)<<6)|(c3&63));i+=3;}}
-return string;}}
-var encode=document.getElementById('encode'),decode=document.getElementById('decode'),output=document.getElementById('output'),input=document.getElementById('input');var User_ID="";var protected_links="";var a_to_va=0;var a_to_vb=0;var a_to_vc="";function auto_safelink(){auto_safeconvert();}
-function auto_safeconvert(){var a_to_vd=window.location.hostname;if(protected_links!=""&&!protected_links.match(a_to_vd)){protected_links+=", "+ a_to_vd;}else if(protected_links=="")
-{protected_links=a_to_vd;}
-var a_to_ve="";var a_to_vf=new Array();var a_to_vg=0;a_to_ve=document.getElementsByTagName("a");a_to_va=a_to_ve.length;a_to_vf=a_to_fa();a_to_vg=a_to_vf.length;var a_to_vh=false;var j=0;var a_to_vi="";for(var i=0;i<a_to_va;i++)
-{a_to_vh=false;j=0;while(a_to_vh==false&&j<a_to_vg)
-{a_to_vi=a_to_ve[i].href;if(a_to_vi.match(a_to_vf[j])||!a_to_vi||!a_to_vi.match("http"))
-{a_to_vh=true;}
-j++;}
-if(a_to_vh==false)
-{var encryptedUrl=Base64.encode(a_to_vi);
-var x=Math.floor((Math.random()*4)+ 1);
-var xxx=null;
-if(x=="1"){xxx="4.Blogs.To.Help.Track.Current.Viral.Trends.html"}
-if(x=="2"){xxx="3.Surefire.Tips.to.Building.a.Great.Business.Team.html"}
-if(x=="3"){xxx="3.Marketing.Trends.To.Put.On.Your.Radar.Today.html"}
-if(x=="4"){xxx="3.Major.Reasons.Why.Clients.Are.Not.Buying.Your.SEO.Services.html"}
-a_to_ve[i].href="https://safe.kecoh.info/2018/08/"+xxx+"?url="+ encryptedUrl;a_to_ve[i].rel="nofollow";a_to_vb++;a_to_vc+=i+":::"+ a_to_ve[i].href+"\n";}}
-var a_to_vj=document.getElementById("anonyminized");var a_to_vk=document.getElementById("found_links");if(a_to_vj)
-{a_to_vj.innerHTML+=a_to_vb;}
-if(a_to_vk)
-{a_to_vk.innerHTML+=a_to_va;}}
-function a_to_fa()
-{var a_to_vf=new Array();protected_links=protected_links.replace(" ","");a_to_vf=protected_links.split(",");return a_to_vf;}
+var blog_url="http://safe.kecoh.info"; // Homepage Blog Safelink
+var article1="/2018/08/4.Blogs.To.Help.Track.Current.Viral.Trends.html"; // Article 1
+var article2="/2018/08/3.Surefire.Tips.to.Building.a.Great.Business.Team.html"; // Article 2
+var article3="/2018/08/3.Marketing.Trends.To.Put.On.Your.Radar.Today.html"; // Article 3
+var protected_links = "ekecoh.com,facebook.com,twitter.com,instagram.com"; // Protected Links
+function auto_safeconvert(){var a=window.location.hostname,c=0;""==protected_links||protected_links.match(a)?""==protected_links&&(protected_links=a):protected_links+=", "+a;var b;a=document.getElementsByTagName("a");a_to_va=a.length;var d=(b=a_to_fa()).length;for(var e,f,h="",g=0;g<a_to_va;g++){e=!1;for(f=0;0==e&&f<d;)!(h=a[g].href).match(b[f])&&h&&h.match("http")||(e=!0),f++;if(0==e){e=Base64.encode(h+",");f=Math.floor(3*Math.random()+1);var k=null;"1"==f&&(k=""+article1);"2"==f&&
+(k=""+article2);"3"==f&&(k=""+article3);a[g].href=""+blog_url+k+"?url="+e;a[g].rel="nofollow";c++}}a=document.getElementById("anonyminized");b=document.getElementById("found_links");a&&(a.innerHTML+=c);b&&(b.innerHTML+=a_to_va)}function a_to_fa(){return protected_links=protected_links.replace(" ",""),protected_links.split(",")}
+var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(a){var c,b,d="",e=0;for(a=Base64._utf8_encode(a);e<a.length;){var f=(c=a.charCodeAt(e++))>>2;var h=(3&c)<<4|(c=a.charCodeAt(e++))>>4;var g=(15&c)<<2|(b=a.charCodeAt(e++))>>6;var k=63&b;isNaN(c)?g=k=64:isNaN(b)&&(k=64);d=d+this._keyStr.charAt(f)+this._keyStr.charAt(h)+this._keyStr.charAt(g)+this._keyStr.charAt(k)}return d},decode:function(a){var c,b,d,e="",f=0;for(a=a.replace(/[^A-Za-z0-9\+\/\=]/g,
+"");f<a.length;){var h=this._keyStr.indexOf(a.charAt(f++))<<2|(c=this._keyStr.indexOf(a.charAt(f++)))>>4;c=(15&c)<<4|(b=this._keyStr.indexOf(a.charAt(f++)))>>2;var g=(3&b)<<6|(d=this._keyStr.indexOf(a.charAt(f++)));e+=String.fromCharCode(h);64!=b&&(e+=String.fromCharCode(c));64!=d&&(e+=String.fromCharCode(g))}return Base64._utf8_decode(e)},_utf8_encode:function(a){a=a.replace(/\r\n/g,"\n");for(var c="",b=0;b<a.length;b++){var d=a.charCodeAt(b);128>d?c+=String.fromCharCode(d):127<d&&2048>d?(c+=String.fromCharCode(d>>
+6|192),c+=String.fromCharCode(63&d|128)):(c+=String.fromCharCode(d>>12|224),c+=String.fromCharCode(d>>6&63|128),c+=String.fromCharCode(63&d|128))}return c},_utf8_decode:function(a){for(var c="",b=0,d=c1=c2=0;b<a.length;)128>(d=a.charCodeAt(b))?(c+=String.fromCharCode(d),b++):191<d&&224>d?(c2=a.charCodeAt(b+1),c+=String.fromCharCode((31&d)<<6|63&c2),b+=2):(c2=a.charCodeAt(b+1),c3=a.charCodeAt(b+2),c+=String.fromCharCode((15&d)<<12|(63&c2)<<6|63&c3),b+=3);return c}};auto_safeconvert();
