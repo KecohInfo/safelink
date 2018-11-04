@@ -1,3 +1,4 @@
+// AUTO SAFELINK FOR WWW.EKECOH.COM
 var blog_url="http://safe.ekecoh.com"; // Homepage Blog Safelink
 var article1="/2018/11/chicago-teeth-whitening-methods-why.html"; // Article 1
 var article2="/2018/11/modern-ways-to-achieve-perfect-smile.html"; // Article 2
